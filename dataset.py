@@ -84,8 +84,7 @@ class ISBI(data.Dataset):
 
 def return_data(args):
     root = args.root
-    transform = transforms.Compose([transforms.ToTensor(),
-                                    transforms.Normalize((0.4912,), (0.1712,)), ])
+    transform = transforms.Compose([transforms.ToTensor(), ])
     target_transform = transforms.Compose([transforms.ToTensor(), ])
     train_data = ISBI(root=root, mode='train',
                       transform=transform, target_transform=target_transform)

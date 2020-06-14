@@ -71,6 +71,7 @@ class ISBI(data.Dataset):
 
         if self.target_transform is not None:
             target = self.target_transform(target)
+        target = target.long()
 
         return img, target
 
@@ -83,11 +84,13 @@ class ISBI(data.Dataset):
 
 def return_data(args):
     root = args.root
-    transform = transforms.Compose([transforms.ToTensor()])
+    transform = transforms.Compose([transforms.ToTensor(),
+                                    transforms.Normalize((0.4912,), (0.1712,)), ])
+    target_transform = transforms.Compose([transforms.ToTensor(), ])
     train_data = ISBI(root=root, mode='train',
-                      transform=transform, target_transform=transform)
+                      transform=transform, target_transform=target_transform)
     test_data = ISBI(root=root, mode='test',
-                     transform=transform, target_transform=transform)
+                     transform=transform, target_transform=target_transform)
 
     train_loader = DataLoader(train_data,
                               batch_size=1,

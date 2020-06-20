@@ -1,0 +1,6 @@
+{arch: NestedUNet, batch_size: 5, dataset_test: isbi_test_512, dataset_train: isbi_train_512,
+  deep_supervision: false, early_stopping: -1, epochs: 100, factor: 0.1, gamma: 0.6666666666666666,
+  img_ext: .png, input_channels: 3, input_h: 512, input_w: 512, loss: BCEDiceLoss,
+  lr: 0.01, mask_ext: .png, milestones: '1,2', min_lr: 1.0e-05, momentum: 0.9, name: unet++_100epoch_0.01_5batchsize,
+  nesterov: false, num_classes: 1, num_workers: 4, optimizer: SGD, patience: 2, scheduler: CosineAnnealingLR,
+  weight_decay: 0.0001}

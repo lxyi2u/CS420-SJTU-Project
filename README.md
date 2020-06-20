@@ -64,4 +64,24 @@ python train.py --root='../dataset/membrane' --save_path='unet_membrane.hdf5'
 python test.py --root='../dataset/membrane' --model_path='unet_membrane.hdf5'
 ```
 
+### Unet++
+
+#### Training stage
+
+```
+python train.py
+```
+
+#### Test stage
+
+```
+python val.py
+```
+#### Calculate accuracy
+
+```
+python acc.py
+```
+You should place the predicted image to be tested and label in the img and label folders respectively
+
 

@@ -64,6 +64,7 @@ python train.py --root='../dataset/membrane' --save_path='unet_membrane.hdf5'
 python test.py --root='../dataset/membrane' --model_path='unet_membrane.hdf5'
 ```
 
+<<<<<<< HEAD
 ### Unet++
 
 #### Training stage
@@ -84,4 +85,7 @@ python acc.py
 ```
 You should place the predicted image to be tested and label in the img and label folders respectively
 
+=======
+**optional :** run ```unet_densecrf.py```to take **Unet** as the front end and **DenseCRF** as the back end
+>>>>>>> 57e14b3e6cf7dfcdf97ed60f453f5e2d2d314c4f
 

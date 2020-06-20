@@ -45,7 +45,7 @@ def dense_crf(i,img, output_probs):
 
 def unet_crf():
     model = unet()
-    model.load_weights("./unet_membrane_512_1e-5.hdf5")
+    model.load_weights("./unet_membrane.hdf5")
     testGene = testGenerator("./dataset/membrane/test/img", 1)
     labelGene = labelGenerator("./dataset/membrane/test/label", 1)
     dataset = zip(testGene, labelGene)

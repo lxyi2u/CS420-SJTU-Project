@@ -66,5 +66,5 @@ python test.py --root='../dataset/membrane' --model_path='unet_membrane.hdf5'
 
 ##### option:
 
-run ```unet_densecrf.py```to take **Unet** as the front end and **DenseCRF** as the back end.
+run ```unet_densecrf.py```to take **Unet** as the front end and **DenseCRF** as the back end
 

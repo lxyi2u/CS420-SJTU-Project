@@ -11,7 +11,7 @@ from keras import backend as keras
 from distutils.version import LooseVersion as Version
 
 
-def unet(pretrained_weights=None, input_size=(256, 256, 1)):
+def unet(pretrained_weights=None, input_size=(512, 512, 1)):
     inputs = Input(input_size)
     conv1 = Conv2D(64, 3, activation='relu', padding='same',
                    kernel_initializer='he_normal')(inputs)
@@ -77,11 +77,10 @@ def unet(pretrained_weights=None, input_size=(256, 256, 1)):
     conv10 = Conv2D(1, 1, activation='sigmoid')(conv9)
 
     model = Model(input=inputs, output=conv10)
-
-    model.compile(optimizer=Adam(lr=1e-4),
+    # set the optimizer
+    model.compile(optimizer=Adam(lr=1e-5),
                   loss='binary_crossentropy', metrics=['accuracy'])
 
-    # model.summary()
 
     if(pretrained_weights):
         model.load_weights(pretrained_weights)

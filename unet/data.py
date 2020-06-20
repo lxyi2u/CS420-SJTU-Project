@@ -3,7 +3,6 @@ from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 import numpy as np
 import os
-import glob
 import skimage.io as io
 import skimage.transform as trans
 
@@ -19,7 +18,7 @@ def adjustData(img, mask):
 
 def trainGenerator(batch_size, train_path, image_folder, mask_folder, aug_dict, image_color_mode="grayscale",
                    mask_color_mode="grayscale", image_save_prefix="image", mask_save_prefix="mask",
-                    save_to_dir=None, target_size=(256, 256), seed=1):
+                   save_to_dir=None, target_size=(256, 256), seed=1):
     '''
         can generate image and mask at the same time
         use the same seed for image_datagen and mask_datagen to ensure the transformation for image and mask is the same
@@ -66,6 +65,7 @@ def testGenerator(test_path, num_image=30, target_size=(256, 256), flag_multi_cl
         img = np.reshape(img, (1,)+img.shape)
         yield img
 
+
 def labelGenerator(test_path, num_image=30, target_size=(256, 256), flag_multi_class=False, as_gray=True):
     '''
         In test stage, return test label
@@ -75,12 +75,5 @@ def labelGenerator(test_path, num_image=30, target_size=(256, 256), flag_multi_c
         img = img.resize(target_size)
         img = np.asarray(img)
         img = img / 255.
-        
+
         yield img
-
-
-
-
-
-
-
